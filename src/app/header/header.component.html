@@ -1,0 +1,42 @@
+
+<div class="row">
+    <label style=" color: white;
+    font-weight: bold;
+    font-size: 27px;">Construction</label>
+<span style="display: flex;justify-content: flex-end;margin-top:-38px">
+     <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+               <!-- <button mat-menu-item>
+                  <mat-icon>dialpad</mat-icon>
+                  <span>Redial</span>
+                </button>
+                <button mat-menu-item disabled>
+                  <mat-icon>voicemail</mat-icon>
+                  <span>Check voicemail</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>notifications_off</mat-icon>
+                  <span>Disable alerts</span>
+                </button>-->
+                <button mat-menu-item (click)="logout();">
+                  <mat-icon>exit_to_app</mat-icon>
+                  <span>Logout</span>
+                </button>
+              </mat-menu>
+          </span>    
+ </div>
+ <div class="nav-bar">
+  <mat-toolbar class="mat-elevation-z8">
+   <!-- <a class="icons"  [routerLink]="['/HomePage']"><mat-icon >home</mat-icon> <span style="margin-left: 2px;font-size: 10px;margin-top: -12px; color: white;">Home</span></a>-->
+    <a class="icons"  [routerLink]="['/projects']"><mat-icon  ><span>book</span></mat-icon><span style="margin-left: -4px;font-size: 10px;margin-top: -12px; color: white;">Projects</span></a>
+    <a class="icons"  [routerLink]="['/assigned_projects']"><mat-icon><span>event</span></mat-icon><span style="margin-left: -24px;font-size: 10px;margin-top: -12px; color: white;">Assigned Projects</span></a>
+    <!--<a class="icons"  [routerLink]="['/notification']"><mat-icon ><span matTooltip="Review">rate_review</span></mat-icon><span style="margin-left: -2px;font-size: 10px;margin-top: -12px; color: white;">Review</span></a>-->
+    <a class="icons"  [routerLink]="['/profile']"><mat-icon  ><span matTooltip="Profile">person</span></mat-icon><span style="margin-left: 1px;font-size: 10px;margin-top: -12px; color: white;">Profile</span></a>
+   <!-- <a class="icons"  [routerLink]="['/reachUs']"><mat-icon>menu</mat-icon></a>-->
+</mat-toolbar>
+</div>
+<router-outlet></router-outlet>      
+
+

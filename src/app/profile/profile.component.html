@@ -1,0 +1,165 @@
+<appheader></appheader>
+<div class="container">
+  <div class="img-container">
+    <img class="img"  id="image" src="{{imagePath ? imagePath : './assets/icons/profilelogo.png'}}" (click)="changeProfilePicture()">
+  </div>
+  <!--<div *ngIf="isResponse==false" class="img-container">
+      <mat-spinner></mat-spinner>
+  </div>-->
+  <div style=" display:flex;justify-content:space-around;flex-direction:column;padding-top: 10px;font-size: 22px;width:auto;" (click)="viewpersonalDetails()">
+     <b> {{name}}</b>
+    <!-- <span style="color: antiquewhite;margin-top: -10px;">Edit Profile</span> -->
+  </div> 
+</div>
+<mat-divider></mat-divider>
+
+
+<div style="padding-top:20px;">
+  <mat-divider></mat-divider>
+    <div class="mat-elevation-z8">
+      <mat-toolbar style="background-color:#3f51b5; height:30px">
+      <span style="color:white;font-size: 15px;">Personal Details</span>
+    </mat-toolbar>
+    </div>  
+ <!-- <div *ngIf="isResponse" id="formstyle">-->
+ 
+   
+
+ <div> 
+  <form id="formstyle" (submit)="saveChanges($event)">
+
+ <div *ngIf="disableWorkat" id="formstyle1" >
+  <mat-form-field (click)="changeWorkAt()">
+    <mat-card-title>Worked At</mat-card-title><mat-icon style="float:right" >edit</mat-icon>
+    <!--<div *ngIf="enableTextBox; then workedAtenable else workedAtdisable"></div>-->
+    <input matInput  name="workedAt" value="{{worked_At}}" disabled="true">
+   </mat-form-field>
+   </div>
+
+   <div *ngIf="enableWorkat" id="formstyle"> 
+      <mat-form-field [floatLabel]="options.value.floatLabel">
+          <mat-card-title>Worked At</mat-card-title>
+         <input matInput name="workedAt" [(ngModel)]="workedAt" [matAutocomplete]="auto1">
+       </mat-form-field>
+       <mat-autocomplete #auto1="matAutocomplete">
+          <mat-option *ngFor="let option of workAtList" [value]="option">
+               {{option}}
+          </mat-option>
+        </mat-autocomplete>
+    </div>
+
+  
+    <!-- <div (click)="openDropdown($event)">
+    <mat-form-field>
+      <mat-card-title>Worked At</mat-card-title>
+     <input matInput name="workedAt"  value="{{worked_At}}" (keyup)="autoCompleteWork($event)">
+    </mat-form-field>
+  </div> 
+      <div *ngIf="flag1">
+      <div  class="hospital-container">
+        <mat-option *ngFor="let h of hospitalList" [value]="h">
+         {{h.text}} 
+        </mat-option>
+      </div>
+    </div> 
+     -->
+ 
+
+<div *ngIf="disableWorkas" id="formstyle1">
+  <mat-form-field (click)="changeWorkAs()">
+      <mat-card-title>Worked As</mat-card-title><mat-icon style="float:right" >edit</mat-icon>
+      <input matInput name="workedAs" value="{{worked_As}}" disabled="true">
+  </mat-form-field>
+</div>
+
+
+
+<!-- <mat-card-title>Worked As</mat-card-title>
+  <mat-form-field>
+     <input matInput name="workedAs" value="{{worked_As}}" [(ngModel)]="workedAs" [matAutocomplete]="auto">
+  </mat-form-field>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of workList" [value]="option">
+             {{option}}
+        </mat-option>
+      </mat-autocomplete> -->
+      <div *ngIf="enableWorkas" id="formstyle">
+          <mat-form-field [floatLabel]="options.value.floatLabel">
+              <mat-card-title>Worked As</mat-card-title>
+             <input matInput name="workedAs" [(ngModel)]="workedAs" [matAutocomplete]="auto">
+          </mat-form-field>
+          <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of workAsList" [value]="option">
+                   {{option}}
+              </mat-option>
+            </mat-autocomplete> 
+        </div>
+
+
+<div *ngIf="disableQualification" id="formstyle1">
+  <mat-form-field (click)="changeQualification()">
+      <mat-card-title>Qualification</mat-card-title><mat-icon style="float:right;height:10px;width:20px;" >edit</mat-icon>
+      <input matInput name="qualifiCation" value="{{qualification}}" disabled="true">
+  </mat-form-field>
+</div>
+
+<div *ngIf="enableQualification" id="formstyle">
+    <mat-form-field [floatLabel]="options.value.floatLabel">
+      <mat-card-title>Qualification</mat-card-title>
+    <mat-select [(ngModel)]="selectedOption" name="qualification" multiple>
+        <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+      </mat-select>
+      </mat-form-field>
+  </div>
+
+
+  <!-- <mat-form-field>
+    <mat-card-title>Qualification</mat-card-title>
+      <input matInput name="qualifiCation" value="{{qualification}}">
+  </mat-form-field> -->
+
+
+<!--<form id="formstyle" (submit)="saveChanges($event)">
+<div *ngIf="enableWorkat" id="formstyle"> 
+  <mat-form-field>
+     <!--<mat-card-title>Worked At</mat-card-title>
+   <input matInput placeholder="please Enter your WorkPlace"  name="workedAt"  value="{{worked_At}}">
+   </mat-form-field>
+</div>
+
+<div *ngIf="enableWorkas" id="formstyle">
+  <mat-form-field>
+     <!-- <mat-card-title>Worked As</mat-card-title>
+      <input matInput  placeholder="You WorkedAs!!!!"  name="workedAs" value="{{worked_As}}">
+  </mat-form-field>
+</div>
+
+<div *ngIf="enableQualification" id="formstyle">
+  <mat-form-field>
+    <!--  <mat-card-title>Qualification</mat-card-title>
+      <input matInput  placeholder="please Enter your Qualification"  name="qualifiCation" value="{{qualification}}">
+  </mat-form-field>
+</div>-->
+<button mat-raised-button color="primary" (click)="openDilogSaveChanges()">Save Changes</button>
+
+</form>  
+</div>  
+
+
+
+
+</div>
+<mat-divider style="padding-top:10px"></mat-divider>
+  <div *ngIf="isResponse">
+      <label style="color:green">{{status}}</label>
+  </div>
+    <!-- <mat-toolbar style="background-color:#3f51b5; height:30px;color:white;margin-top:20px;">
+         <span style="font-size: 15px;">Settings</span>
+       </mat-toolbar>-->
+       <div style="margin-top: 10px; margin-left: 5px;">
+       <label style="font-size:20px;" (click)="openDialog()">Logout</label>
+     </div>
+ 
+
+
+
