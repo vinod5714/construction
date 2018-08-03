@@ -1,0 +1,36 @@
+
+<appheader></appheader>
+
+
+ 
+  <!--<mat-list role="list"  *ngFor="let ch of chatlist">
+    <mat-list-item role="listitem">{{ch.pid}}</mat-list-item>
+    <mat-list-item role="listitem">{{ch.uid}}</mat-list-item>
+    
+    <mat-divider></mat-divider>
+  </mat-list> -->
+    
+    
+
+  <!--<img *ngIf="url" [src]="url" height="200"  [(ngModel)]="img"> <br/> -->
+
+  <input type='file' (change)="onSelectFile($event)">
+  
+  <mat-form-field>
+    <textarea matInput placeholder="Textarea" [(ngModel)]="msg"></textarea>
+  </mat-form-field>
+
+ 
+  <button mat-button (click)="getdetails()">Click me!</button>
+
+ 
+
+
+
+
+
+
+
+
+
+

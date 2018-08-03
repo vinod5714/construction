@@ -27,12 +27,37 @@ export class ProjectsComponent implements OnInit {
     this.user_id = this.currentUser['uid'];
     console.log(this.user_id);
     this.project.getProjectDetails(this.user_id)
+
+
+
+chatdetails(id:number)
+{
+    
+      this.router.navigate(['chatdetails',{id:id}]);
+}  
+
+  ngOnInit() {  
+
+    this.project.getProjectDetails()
+
     .subscribe(
       data=>{
          console.log(data);
          this.projectlist=data;
          console.log(this.projectlist);
   });
+
 }
+
+
+
+
+
+
+
+
+
+
+
 
 }
