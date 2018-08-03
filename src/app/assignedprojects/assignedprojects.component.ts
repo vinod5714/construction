@@ -15,12 +15,12 @@ import {assignedprojects} from './assignedproject'
 export class AssignedprojectsComponent implements OnInit {
   projectlist= [];
   assignedprojects=[];
-  displayedColumns: string[] = ['Project Id','Project Name', 'User Name', 'Email', 'Phone'];
+  //displayedColumns: string[] = ['Project Id','Project Name', 'User Name', 'Email', 'Phone'];
   constructor(private router:Router, private http:Http,private project:ProjectService) { }
 
   
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  //@ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
     

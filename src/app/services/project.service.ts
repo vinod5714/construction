@@ -12,9 +12,9 @@ export class ProjectService {
   url:string="http://adkambs.com/ConstructionApp/ConstructionApp/Welcome/getProjectDetails";
   constructor(private http:Http) { }
 
-  getProjectDetails():Observable<projectlist[]>
+  getProjectDetails(uid:number):Observable<projectlist[]>
   {
-     return this.http.get(this.url)
+     return this.http.post(this.url,JSON.stringify({uid:uid}))
      .map((response:Response)=><projectlist[]>response.json());
   }
   getAssignedProjectDetails():Observable<assignedprojects[]>
