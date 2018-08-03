@@ -19,8 +19,16 @@ export class ProjectsComponent implements OnInit {
   
   constructor(private router:Router, private http:Http,private project:ProjectService) { }
 
-  ngOnInit() {
-   
+
+
+chatdetails(id:number)
+{
+    
+      this.router.navigate(['chatdetails',{id:id}]);
+}  
+
+  ngOnInit() {  
+
     this.project.getProjectDetails()
     .subscribe(
       data=>{
@@ -28,6 +36,18 @@ export class ProjectsComponent implements OnInit {
          this.projectlist=data;
          console.log(this.projectlist);
   });
+
 }
+
+
+
+
+
+
+
+
+
+
+
 
 }

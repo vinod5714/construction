@@ -42,8 +42,9 @@ import {ProjectService} from './services/project.service';
 import { RegisterService } from './services/register.service';
 import { RegistrationComponent } from './registration/registration.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { AssignedprojectsComponent } from './assignedprojects/assignedprojects.component'
-
+import { AssignedprojectsComponent } from './assignedprojects/assignedprojects.component';
+import { ChatdetailsComponent } from './chatdetails/chatdetails.component'
+import {ChatService} from './services/chat.service';
 
 const appRoutes:Routes = [
   {
@@ -73,6 +74,11 @@ const appRoutes:Routes = [
     //canActivate:[AuthguardGuard],
     component:AssignedprojectsComponent
   },
+  {
+	 path:'chatdetails',
+    //canActivate:[AuthguardGuard],
+    component:ChatdetailsComponent	  
+  },
   
   
 
@@ -92,7 +98,8 @@ const appRoutes:Routes = [
     DilogForChangeProfilePicture,
     RegistrationComponent,
     ProjectsComponent,
-    AssignedprojectsComponent
+    AssignedprojectsComponent,
+    ChatdetailsComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -121,7 +128,7 @@ const appRoutes:Routes = [
     HttpModule,
     MatPaginatorModule
 ],
-  providers: [loginService,,AuthguardGuard,RegisterService,ProjectService],
+  providers: [loginService,,AuthguardGuard,RegisterService,ProjectService,ChatService],
   entryComponents:[DialogOverviewExampleDialog,DilogForSaveChanges,DilogForChangeProfilePicture],
   bootstrap: [AppComponent]
 })
