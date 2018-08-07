@@ -1,0 +1,23 @@
+.container
+{
+    display:flex;
+    flex-direction: column;
+    padding-top:35px;
+}
+.example-card
+{
+  margin-top: 4px;
+  margin-bottom: 5px;
+  border-radius: 3%;
+}
+.icon
+{
+    color:green;
+   font-size:33px;
+    display: flex;
+    justify-content: flex-end;
+}
+agm-map {
+    height: 300px;
+  }
+  

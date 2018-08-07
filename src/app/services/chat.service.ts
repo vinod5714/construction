@@ -24,10 +24,10 @@ export class ChatService {
 
 
 
-  savedetails(lat:string,lng:string,msg:string,id:number,formData:object)
+  saveChatDetails(FormData:FormData)
   {
-  // console.log(lat);
-    return this.http.post("http://adkambs.com/ConstructionApp/ConstructionApp/Welcome/savedetails",JSON.stringify({id:id,lat:lat,lng:lng,msg:msg,img:formData}))
+  
+    return this.http.post("http://adkambs.com/ConstructionApp/ConstructionApp/Welcome/saveChatDetails",FormData)
     .map((response:Response)=>response.json());   
 
   }

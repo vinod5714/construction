@@ -16,18 +16,13 @@ export class ProjectsComponent implements OnInit {
 
   currentUser;
   user_id;
+  id;
   public projectlist=[];
   
   constructor(private router:Router, private http:Http,private project:ProjectService) { }
 
-  ngOnInit() {
+  
    
-    this.currentUser = JSON.parse(localStorage.getItem('Userinfo'));
-    console.log(this.currentUser);
-    this.user_id = this.currentUser['uid'];
-    console.log(this.user_id);
-    this.project.getProjectDetails(this.user_id)
-
 
 
 chatdetails(id:number)
@@ -36,10 +31,13 @@ chatdetails(id:number)
       this.router.navigate(['chatdetails',{id:id}]);
 }  
 
-  ngOnInit() {  
-
-    this.project.getProjectDetails()
-
+  ngOnInit() { 
+    
+    this.currentUser = JSON.parse(localStorage.getItem('Userinfo'));
+    console.log(this.currentUser);
+    this.user_id = this.currentUser['uid'];
+    console.log(this.user_id);
+    this.project.getProjectDetails(this.user_id)
     .subscribe(
       data=>{
          console.log(data);

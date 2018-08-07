@@ -1,30 +1,35 @@
 
 <appheader></appheader>
-
-
- 
-  <!--<mat-list role="list"  *ngFor="let ch of chatlist">
-    <mat-list-item role="listitem">{{ch.pid}}</mat-list-item>
-    <mat-list-item role="listitem">{{ch.uid}}</mat-list-item>
-    
-    <mat-divider></mat-divider>
-  </mat-list> -->
-    
-    
-
-  <!--<img *ngIf="url" [src]="url" height="200"  [(ngModel)]="img"> <br/> -->
-
-  <input type='file' (change)="onSelectFile($event)">
+<div>
+  <label>Recent Posts</label>
+    <mat-card *ngFor ="let chats of chatlist" class="example-card">
+        <mat-card-content>
+     
+            <img class="img"  id="image" src="{{chats.image}}" height="150px">
+            <p mat-line>{{chats.description}}</p>
+      <div class="map">
+          <agm-map [latitude]="lat" [longitude]="lng">
+              <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+            </agm-map>
+       </div>
+      </mat-card-content>
+    </mat-card>        
+</div>
+<img *ngIf="image" [src]="image" height="200" name="img">
   
+<input type='file' (change)="onSelectFile($event)" style="display:none" #file> 
+
+<div class="container">
+    <label>Upload Image:</label><img src="./assets/icons/camera.jpg" id="upfile1" style="cursor:pointer" (click)="file.click()" height="50px" width="50px" />
+  </div>
+<div class="container">
   <mat-form-field>
-    <textarea matInput placeholder="Textarea" [(ngModel)]="msg"></textarea>
-  </mat-form-field>
-
- 
-  <button mat-button (click)="getdetails()">Click me!</button>
-
- 
-
+    <input matInput placeholder="Your comments" [(ngModel)]="msg">
+    <mat-icon matSuffix class="icon" (click)="saveChat()" style="cursor:pointer">send</mat-icon>
+ </mat-form-field>
+</div>
+<mat-error *ngIf="Response">{{Response}}</mat-error>
+   
 
 
 

@@ -2,17 +2,15 @@
 
 
 <mat-list>
-      <h3 mat-subheader> My Projects</h3>
-    <mat-list-item *ngFor="let project of projectlist">
-      <mat-icon mat-list-icon>note</mat-icon>
-      <h4 mat-line>project id:{{project.pid}}</h4>
-      <p mat-line> project name:{{project.projectname}} </p>
+    <h3 mat-subheader> My Projects</h3>
+    <mat-list-item *ngFor="let project of projectlist" (click)="chatdetails(project.pid)">
+        <mat-icon mat-list-icon>note</mat-icon>
+        <h4 mat-line>project id:{{project.pid}}</h4>
+        <p mat-line> project name:{{project.projectname}} </p>
+   </mat-list-item>
+</mat-list> 
 
-
-      <h3 mat-subheader>Projects</h3>
-   
-
-   <mat-list-item *ngFor="let project of projectlist">
+  <!-- <mat-list-item *ngFor="let project of projectlist">
       <mat-icon mat-list-icon>note</mat-icon>
       <mat-card (click)="chatdetails(project.pid)">
 	  
@@ -21,7 +19,7 @@
   
   </mat-card>
       <mat-divider></mat-divider>
-    </mat-list-item>
+    </mat-list-item>-->
 	
 	
 	

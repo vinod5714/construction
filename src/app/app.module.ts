@@ -33,7 +33,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
-import {DialogOverviewExampleDialog} from './profile/profile.component';
+//import {DialogOverviewExampleDialog} from './chatdetails/chatdetails.component'
 import {viewNotificationComponent} from './home-page/viewNotification.component'; 
 import {DilogForSaveChanges} from './profile/profile.component';
 import {DilogForChangeProfilePicture} from './profile/profile.component';
@@ -45,6 +45,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { AssignedprojectsComponent } from './assignedprojects/assignedprojects.component';
 import { ChatdetailsComponent } from './chatdetails/chatdetails.component'
 import {ChatService} from './services/chat.service';
+import { AgmCoreModule } from '@agm/core';
 
 const appRoutes:Routes = [
   {
@@ -92,7 +93,7 @@ const appRoutes:Routes = [
     HomePageComponent,
     HeaderComponent,
     ProfileComponent,
-    DialogOverviewExampleDialog,
+    //DialogOverviewExampleDialog,
     viewNotificationComponent,
     DilogForSaveChanges,
     DilogForChangeProfilePicture,
@@ -126,10 +127,14 @@ const appRoutes:Routes = [
     MatTableModule,
     MatListModule,
     HttpModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'https://maps.google.com/maps/api/js?libraries=places&key=AIzaSyD_KEjQB3OPKCtFBCU6f3OnJ6PVkWnDy2E'
+    })
+  
 ],
   providers: [loginService,,AuthguardGuard,RegisterService,ProjectService,ChatService],
-  entryComponents:[DialogOverviewExampleDialog,DilogForSaveChanges,DilogForChangeProfilePicture],
+  entryComponents:[DilogForSaveChanges,DilogForChangeProfilePicture],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
