@@ -19,17 +19,22 @@
   
 <input type='file' (change)="onSelectFile($event)" style="display:none" #file> 
 
-<div class="container">
-    <label>Upload Image:</label><img src="./assets/icons/camera.jpg" id="upfile1" style="cursor:pointer" (click)="file.click()" height="50px" width="50px" />
-  </div>
+
+  <button mat-raised-button color="primary" id="upfile1" style="cursor:pointer" (click)="file.click()">Upload Images</button>
+  
 <div class="container">
   <mat-form-field>
     <input matInput placeholder="Your comments" [(ngModel)]="msg">
-    <mat-icon matSuffix class="icon" (click)="saveChat()" style="cursor:pointer">send</mat-icon>
+    <mat-icon matSuffix class="icon" (click)="saveChat($event)" style="cursor:pointer">send</mat-icon>
  </mat-form-field>
 </div>
 <mat-error *ngIf="Response">{{Response}}</mat-error>
-   
+ 
+<!--<button mat-raised-button color="primary" (click)="uploadimages()">upload</button>
+
+<div class="img-container">
+      <img class="uploadedimage" [src]="photo" id="cameraimage" />
+</div>-->
 
 
 

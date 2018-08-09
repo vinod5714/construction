@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http,Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { Input, Output, EventEmitter, HostListener } from '@angular/core';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 
@@ -10,6 +11,8 @@ import 'rxjs/add/operator/map';
 export class ChatService {
 
   url:string="http://adkambs.com/ConstructionApp/ConstructionApp/Welcome/getChatDetails";
+  lat;
+  lng;
   constructor(private http:Http) { }
   
   getChatDetails(id:number)
@@ -31,9 +34,9 @@ export class ChatService {
     .map((response:Response)=>response.json());   
 
   }
-
-
   
+
+
 
   
   

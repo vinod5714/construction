@@ -20,4 +20,14 @@
 agm-map {
     height: 300px;
   }
-  
+.img-container
+{
+    display:flex;
+    flex-direction:column;
+   
+}
+.uploadedimage
+{
+    width: 70px;
+    height: 70px;
+}

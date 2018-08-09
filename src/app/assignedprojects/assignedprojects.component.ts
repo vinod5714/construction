@@ -7,6 +7,9 @@ import 'rxjs/add/operator/map';
 import {ProjectService} from '../services/project.service';
 import {projectlist} from '../projects/project';
 import {assignedprojects} from './assignedproject'
+
+declare let navigator:any;
+
 @Component({
   selector: 'app-assignedprojects',
   templateUrl: './assignedprojects.component.html',
@@ -20,7 +23,28 @@ export class AssignedprojectsComponent implements OnInit {
 
   
 
-  //@ViewChild(MatPaginator) paginator: MatPaginator;
+ /* openCamera()
+  {
+    console.log("take picture");
+    navigator.camera.getPicture(this.onPhotoDataSuccess, this.onFail, { 
+    quality: 50, 
+    sourceType: navigator.camera.PictureSourceType.CAMERA, 
+    destinationType: navigator.camera.DestinationType.DATA_URL, 
+    
+   }); 
+ 
+ }  
+//base64 encoding the image
+ onPhotoDataSuccess(imageData)
+ { 
+    var photo = document.getElementById('image').setAttribute('src',"data:image/jpeg;base64,"+imageData); 
+   console.log("photo"+photo);
+ } 
+ onFail(message)
+ { 
+    alert('Failed because:' + message); 
+ }   */
+
 
   ngOnInit() {
     

@@ -33,10 +33,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
-//import {DialogOverviewExampleDialog} from './chatdetails/chatdetails.component'
+
 import {viewNotificationComponent} from './home-page/viewNotification.component'; 
 import {DilogForSaveChanges} from './profile/profile.component';
-import {DilogForChangeProfilePicture} from './profile/profile.component';
+import {DilogForuploadImages} from './chatdetails/chatdetails.component';
 
 import {ProjectService} from './services/project.service';
 import { RegisterService } from './services/register.service';
@@ -96,7 +96,7 @@ const appRoutes:Routes = [
     //DialogOverviewExampleDialog,
     viewNotificationComponent,
     DilogForSaveChanges,
-    DilogForChangeProfilePicture,
+    DilogForuploadImages,
     RegistrationComponent,
     ProjectsComponent,
     AssignedprojectsComponent,
@@ -134,7 +134,7 @@ const appRoutes:Routes = [
   
 ],
   providers: [loginService,,AuthguardGuard,RegisterService,ProjectService,ChatService],
-  entryComponents:[DilogForSaveChanges,DilogForChangeProfilePicture],
+  entryComponents:[DilogForSaveChanges,DilogForuploadImages],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
