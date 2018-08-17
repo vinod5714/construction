@@ -11,6 +11,7 @@ import {ActivatedRoute } from '@angular/router';
 declare let navigator:any;
 declare let FileUploadOptions:any;
 declare let FileTransfer:any;
+declare let Object:any;
 @Component({
   selector: 'app-chatdetails',
   templateUrl: './chatdetails.component.html',
@@ -37,7 +38,7 @@ export class ChatdetailsComponent implements OnInit {
 formData =new FormData();
   constructor(private router:Router, private activate:ActivatedRoute,private http:Http,private chat:ChatService,public dialog: MatDialog) { }
 
-onSelectFile(event) 
+/*onSelectFile(event) 
 {
     event.preventDefault();
     let elem= event.target;
@@ -64,7 +65,7 @@ onSelectFile(event)
       }
 
 
-  }
+  }*/
 
   saveChat(e)
   {
@@ -168,7 +169,7 @@ export class DilogForuploadImages
    onPhotoDataSuccess(imageData)
    { 
       var photo = document.getElementById('cameraimage').setAttribute('src',"data:image/jpeg;base64,"+imageData); 
-     console.log("photo"+photo);
+      console.log("photo"+imageData);
    } 
    onFail(message)
    { 
@@ -180,10 +181,10 @@ export class DilogForuploadImages
     openGallary()
     {
       
-      navigator.camera.getPicture(this.onGetPictureSuccess, this.onGetPictureFail, { 
+      navigator.camera.getPicture(this.uploadPhoto,this.onGetPictureSuccess, this.onGetPictureFail, { 
         quality: 50, 
         sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY, 
-        destinationType: navigator.camera.DestinationType.DATA_URL, 
+        destinationType: navigator.camera.DestinationType.FILE_URI, 
     });
     this.dialogRef.close();
    }
@@ -191,22 +192,29 @@ export class DilogForuploadImages
      onGetPictureSuccess(imageData)
      { 
        var photo = document.getElementById('cameraimage').setAttribute('src',"data:image/jpeg;base64,"+imageData); 
-
-    var options = new FileUploadOptions();
-    options.fileKey = "file";
-    options.fileName = imageData.substr(imageData.lastIndexOf('/') + 1);
-    options.mimeType = "image/jpeg";
-    options.params = {}; // if we need to send parameters to the server request
-    var ft = new FileTransfer();
-    ft.upload(imageData, "http://adkambs.com/ConstructionApp/ConstructionApp/Welcome/getimage", function(result){
-    console.log(JSON.stringify(result));
-     }, function(error){
-     console.log(JSON.stringify(error));
-      }, options);
-       
-      } 
+       console.log("photo"+imageData);
+     } 
     onGetPictureFail(message)
     { 
       alert('Failed because:' + message); 
     }  
+    uploadPhoto(imageURI) {
+      var options = new FileUploadOptions();
+      options.fileKey = "file";
+      options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
+      options.mimeType = "image/jpeg";
+      console.log(options.fileName);
+      var params = new Object();
+      params.value1 = "test";
+      params.value2 = "param";
+      options.params = params;
+      options.chunkedMode = false;
+
+      var ft = new FileTransfer();
+      ft.upload(imageURI, "http://192.168.1.4/phonegap/upload/upload.php", function(result){
+      console.log(JSON.stringify(result));
+      }, function(error){
+      console.log(JSON.stringify(error));
+      }, options);
+    }
   }
